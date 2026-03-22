@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="つづける — 習慣の果実。カエルのケロと一緒に、小さな庭で習慣を育てる不思議なアプリ。1週間続けると実が育ち、6種の伝説の果実を集める旅が始まる。">
+  <meta property="og:title" content="つづける — 習慣の果実">
+  <meta property="og:description" content="ケロと一緒に、今日も庭を育てよう。6つの習慣の果実を集める、不思議な習慣育成ゲーム。">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#030908">
+  <meta property="og:image" content="top.png">
+  <link rel="icon" type="image/png" href="top.png">
+  <link rel="apple-touch-icon" href="top.png">
+  <title>つづける — 習慣の果実 | ケロと育てる不思議な庭</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ★ 魔法のパーティクルキャンバス -->
+<canvas id="magic-canvas"></canvas>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav class="nav">
+  <div class="nav-logo">
+    <div class="nav-logo-icon"><img src="top.png" alt="習慣の果実" style="width:100%;height:100%;object-fit:cover;border-radius:8px;"></div>
+    <div>
+      <div class="nav-logo-text">習慣の果実</div>
+      <div class="nav-logo-sub">Tsuzukeru</div>
+    </div>
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="#world">世界観</a></li>
+    <li><a href="#features">使い方</a></li>
+    <li><a href="#fruits">6つの果実</a></li>
+    <li><a href="#book">参考著書</a></li>
+    <li><a href="privacy.html">プライバシーポリシー</a></li>
+    <li><a href="#download" class="nav-cta">無料でダウンロード</a></li>
+  </ul>
+
+  <div class="hamburger" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" id="top">
+  <div class="hero-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <div class="hero-eyebrow">✦ Curiouser and Curiouser ✦</div>
+
+  <h1 class="hero-title">
+    <span class="hero-title-main">習慣の果実</span>
+    <span class="hero-title-sub">Tsuzukeru — The Habit Garden</span>
+  </h1>
+
+  <p class="hero-catch">
+    ケロと一緒に、今日も<em>庭を育てよう。</em><br>
+    続けるほど、実は輝きを増していく。
+  </p>
+
+  <div class="hero-phones">
+    <div class="phone-mockup phone-side">
+      <img src="screenshots/IMG_6192.PNG" alt="週クリア画面">
+    </div>
+    <div class="phone-mockup phone-main">
+      <img src="screenshots/IMG_6189.PNG" alt="オープニング画面">
+    </div>
+    <div class="phone-mockup phone-side">
+      <img src="screenshots/IMG_6195.PNG" alt="収蔵庫">
+    </div>
+  </div>
+
+  <div class="hero-actions">
+    <a href="#download" class="btn-primary">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      App Store でダウンロード
+    </a>
+    <a href="#world" class="btn-secondary">
+      <span>🐸</span> 物語を見る
+    </a>
+  </div>
+
+  <div class="hero-forest"></div>
+
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-hint-line"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     WORLD / STORY
+     ============================================================ -->
+<section class="world-section" id="world">
+  <div class="section-inner">
+    <div class="world-grid">
+
+      <div class="world-text reveal">
+        <span class="section-label">✦ The Wonderland ✦</span>
+        <h2 class="section-title">
+          ここは、<span class="accent">不思議な習慣の国</span>。<br>
+          ケロが、あなたを待っている。
+        </h2>
+
+        <blockquote class="world-quote">
+          「この国には、6つの伝説の果実が眠っている。<br>
+          <strong>君の習慣だけが、それを育てる力を持つよ。</strong><br>
+          さあ、一緒に庭へ行こう！」<br>
+          <small style="font-size:0.78rem;color:var(--text-muted);font-style:normal;">— ケロ（案内役）</small>
+        </blockquote>
+
+        <p class="section-body">
+          「つづける」は、習慣を続けると庭の植物が育ち、不思議な果実を収穫できる習慣育成ゲームアプリです。
+          失敗しても、ケロは責めません。ポジティブな言葉でそっと背中を押してくれます。
+        </p>
+      </div>
+
+      <div class="world-cards reveal reveal-delay-2">
+        <div class="world-card">
+          <div class="world-card-icon">🌱</div>
+          <div>
+            <h3>習慣を登録する</h3>
+            <p>毎日・曜日指定・週1回から選べる。リマインダー通知も設定できる。</p>
+          </div>
+        </div>
+        <div class="world-card">
+          <div class="world-card-icon">✅</div>
+          <div>
+            <h3>チェックして植物を育てる</h3>
+            <p>達成するたびに植物が成長。天気も晴れに変わり、ケロが喜んでくれる。</p>
+          </div>
+        </div>
+        <div class="world-card">
+          <div class="world-card-icon">🍎</div>
+          <div>
+            <h3>1週間で果実を収穫</h3>
+            <p>7日間達成で植物が成熟。「収穫する！」ボタンを押して、伝説の果実をゲット。</p>
+          </div>
+        </div>
+        <div class="world-card">
+          <div class="world-card-icon">✨</div>
+          <div>
+            <h3>6種コンプリートで願いが叶う</h3>
+            <p>全6種の果実を集めると、神様ケロの正体が明かされ、特別なエンディングへ。</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     KERO CHARACTER
+     ============================================================ -->
+<section class="kero-section" id="kero">
+  <div class="kero-inner">
+    <div class="kero-badge reveal">
+      <span>🐸</span> Character — Kero
+    </div>
+
+    <h2 class="kero-title reveal reveal-delay-1">
+      あなたの庭を守る、<br>不思議な案内役
+      <span style="display:block;font-size:0.55em;font-family:'Cinzel Decorative',cursive;letter-spacing:0.2em;color:var(--text-muted);margin-top:10px;font-weight:400;">KERO, The Guardian of the Garden</span>
+    </h2>
+
+    <p class="kero-desc reveal reveal-delay-2">
+      カエルのキャラクター「ケロ」は、あなたの庭をいつも見守っています。<br>
+      習慣の達成状況によって表情が変わり、吹き出しで声をかけてくれます。<br>
+      不思議の国のアリスに登場するチェシャ猫のように、<br>
+      ケロはこの不思議な庭の秘密を知っています——
+    </p>
+
+    <div class="kero-states">
+      <div class="kero-state reveal reveal-delay-1">
+        <span class="kero-state-emoji">🐸</span>
+        <h3>通常</h3>
+        <p>習慣をチェックするたびにポジティブな言葉で背中を押してくれる</p>
+      </div>
+      <div class="kero-state reveal reveal-delay-2">
+        <span class="kero-state-emoji">😄</span>
+        <h3>収穫クリア</h3>
+        <p>「週クリア！すごいすごい！収穫しに行こ！」満面の笑みで一緒に喜ぶ</p>
+      </div>
+      <div class="kero-state reveal reveal-delay-3">
+        <span class="kero-state-emoji">😢</span>
+        <h3>ペナルティ</h3>
+        <p>植物が枯れても、責めずに「また次の週、一緒に頑張ろう」と励ます</p>
+      </div>
+      <div class="kero-state reveal reveal-delay-4">
+        <span class="kero-state-emoji">👑</span>
+        <h3>神様ケロ</h3>
+        <p>6種コンプリート後に正体が明かされる。その姿はまるで不思議の国の神様</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     FEATURES
+     ============================================================ -->
+<section class="features-section" id="features">
+  <div class="section-inner">
+
+    <div class="features-header reveal">
+      <span class="section-label">✦ Features ✦</span>
+      <h2 class="section-title">4つの魔法の扉</h2>
+      <p style="color:var(--text-muted);font-size:0.88rem;letter-spacing:0.06em;">
+        アプリは4つのタブで構成されています。<br>
+        それぞれが、この不思議な庭の異なる顔を持っています。
+      </p>
+    </div>
+
+    <!-- ① お庭 -->
+    <div class="feature-block">
+      <div class="feature-text reveal">
+        <span class="feature-number">01 / 04</span>
+        <span class="feature-tag">🌿 お庭</span>
+        <h3 class="feature-title">
+          習慣を育てる、<br>あなただけの小さな庭
+        </h3>
+        <p class="feature-desc">
+          毎日タスクをチェックするたびに、植物はすくすくと育ちます。
+          天気はあなたの達成率に連動して変化——
+          全部達成すると空が晴れ渡り、ケロが笑顔で喜んでくれます。
+        </p>
+        <ul class="feature-points">
+          <li>習慣は最大9件（通知ON時）〜15件まで登録可能</li>
+          <li>毎日・曜日指定・週1回の3つの頻度から選択</li>
+          <li>達成率100%で画面いっぱいに紙吹雪が舞う演出</li>
+          <li>植物は6段階（芽→成長→成熟）でビジュアルが変化</li>
+        </ul>
+      </div>
+      <div class="feature-phone-wrap reveal reveal-delay-2">
+        <img class="feature-phone" src="screenshots/IMG_6199.PNG" alt="お庭画面">
+      </div>
+    </div>
+
+    <!-- ② 収穫 -->
+    <div class="feature-block reverse">
+      <div class="feature-text reveal">
+        <span class="feature-number">02 / 04</span>
+        <span class="feature-tag">🍎 収穫</span>
+        <h3 class="feature-title">
+          1週間達成で、<br>伝説の果実を手に入れる
+        </h3>
+        <p class="feature-desc">
+          7日間の習慣を達成すると植物が成熟し、収穫のときを迎えます。
+          どの果実が手に入るかは、お楽しみ——
+          進捗カレンダーで過去の達成記録も確認できます。
+        </p>
+        <ul class="feature-points">
+          <li>1週間達成で「果実を収穫する！」ボタンが出現</li>
+          <li>6種の果実はランダム抽選（縮小プール方式で重複しにくい）</li>
+          <li>カレンダーにメダル（🎖️）で達成日を記録</li>
+          <li>月をまたいでの進捗管理にも対応</li>
+        </ul>
+      </div>
+      <div class="feature-phone-wrap reveal reveal-delay-2">
+        <img class="feature-phone" src="screenshots/IMG_6194.PNG" alt="収穫画面">
+      </div>
+    </div>
+
+    <!-- ③ 収蔵庫 -->
+    <div class="feature-block">
+      <div class="feature-text reveal">
+        <span class="feature-number">03 / 04</span>
+        <span class="feature-tag">🏛️ 収蔵庫</span>
+        <h3 class="feature-title">
+          6種の果実が眠る、<br>神秘の収蔵庫
+        </h3>
+        <p class="feature-desc">
+          収穫した果実は収蔵庫に永久保存されます。
+          週に失敗しても、集めた果実は消えません。
+          巨大な習慣の木の下に、6つの謎めいたスロットが——
+        </p>
+        <ul class="feature-points">
+          <li>取得済み果実はフルカラー・未取得は「？」で表示</li>
+          <li>6種コンプリートで「願いを叶える」ボタンが解放</li>
+          <li>さらにパーフェクトフルーツ（幻）で「習慣の王」エンディングへ</li>
+          <li>失敗した週の果実は消えない（コレクションは永久保存）</li>
+        </ul>
+      </div>
+      <div class="feature-phone-wrap reveal reveal-delay-2">
+        <img class="feature-phone" src="screenshots/IMG_6195.PNG" alt="収蔵庫画面">
+      </div>
+    </div>
+
+    <!-- ④ 設定 -->
+    <div class="feature-block reverse">
+      <div class="feature-text reveal">
+        <span class="feature-number">04 / 04</span>
+        <span class="feature-tag">⚙️ 設定</span>
+        <h3 class="feature-title">
+          あなたのペースに<br>合わせた、細やかな設定
+        </h3>
+        <p class="feature-desc">
+          習慣は続けることが大切。だからこそ、通知の設定を柔軟にできます。
+          リマインダー・サボり検知・収穫促進の3種類の通知をそれぞれON/OFF可能。
+        </p>
+        <ul class="feature-points">
+          <li>習慣リマインダー（指定時刻に毎日通知）</li>
+          <li>サボり検知通知（2日間起動しなかったら通知）</li>
+          <li>収穫促進通知（週クリア後、収穫を忘れていたらお知らせ）</li>
+          <li>ケロちゃんのオンボーディングをもう一度見る機能あり</li>
+        </ul>
+      </div>
+      <div class="feature-phone-wrap reveal reveal-delay-2">
+        <img class="feature-phone" src="screenshots/IMG_6196.PNG" alt="設定画面">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     6 FRUITS
+     ============================================================ -->
+<section class="fruits-section" id="fruits">
+  <div class="section-inner">
+
+    <div class="fruits-header reveal">
+      <span class="section-label">✦ Six Legendary Fruits ✦</span>
+      <h2 class="section-title">
+        世界に存在する、<br><span class="accent">6種の伝説の果実</span>
+      </h2>
+      <p style="color:var(--text-muted);font-size:0.88rem;line-height:1.8;max-width:500px;margin:0 auto;">
+        それぞれの果実は、習慣の種類と深く結びついています。<br>
+        どの順番で集まるかは——運命のみが知っています。
+      </p>
+    </div>
+
+    <div class="fruits-grid">
+
+      <div class="fruit-card reveal"
+        style="--fruit-color:rgba(239,68,68,0.08);--fruit-border:rgba(239,68,68,0.4);--fruit-glow:rgba(239,68,68,0.2);">
+        <span class="fruit-number">Fruit I</span>
+        <span class="fruit-emoji">🔴</span>
+        <div class="fruit-name">逆算の果実</div>
+        <div class="fruit-hint">目的から逆算して今日を生きる習慣から生まれる、深紅の実</div>
+      </div>
+
+      <div class="fruit-card reveal reveal-delay-1"
+        style="--fruit-color:rgba(251,146,60,0.08);--fruit-border:rgba(251,146,60,0.4);--fruit-glow:rgba(251,146,60,0.2);">
+        <span class="fruit-number">Fruit II</span>
+        <span class="fruit-emoji">🟠</span>
+        <div class="fruit-name">主体の果実</div>
+        <div class="fruit-hint">自らの意志で選択し続ける者だけが手にできる、橙色の実</div>
+      </div>
+
+      <div class="fruit-card reveal reveal-delay-2"
+        style="--fruit-color:rgba(234,179,8,0.08);--fruit-border:rgba(234,179,8,0.4);--fruit-glow:rgba(234,179,8,0.2);">
+        <span class="fruit-number">Fruit III</span>
+        <span class="fruit-emoji">🟡</span>
+        <div class="fruit-name">刷新の果実</div>
+        <div class="fruit-hint">自分自身を磨き続ける努力が結実した、黄金の実</div>
+      </div>
+
+      <div class="fruit-card reveal reveal-delay-1"
+        style="--fruit-color:rgba(34,197,94,0.08);--fruit-border:rgba(34,197,94,0.4);--fruit-glow:rgba(34,197,94,0.2);">
+        <span class="fruit-number">Fruit IV</span>
+        <span class="fruit-emoji">🟢</span>
+        <div class="fruit-name">双利の果実</div>
+        <div class="fruit-hint">Win-Winの精神で人と関わり続けた者が収穫する、翠緑の実</div>
+      </div>
+
+      <div class="fruit-card reveal reveal-delay-2"
+        style="--fruit-color:rgba(59,130,246,0.08);--fruit-border:rgba(59,130,246,0.4);--fruit-glow:rgba(59,130,246,0.2);">
+        <span class="fruit-number">Fruit V</span>
+        <span class="fruit-emoji">🔵</span>
+        <div class="fruit-name">共感の果実</div>
+        <div class="fruit-hint">他者を深く理解しようとする習慣が育んだ、深海色の実</div>
+      </div>
+
+      <div class="fruit-card reveal reveal-delay-3"
+        style="--fruit-color:rgba(168,85,247,0.08);--fruit-border:rgba(168,85,247,0.4);--fruit-glow:rgba(168,85,247,0.2);">
+        <span class="fruit-number">Fruit VI</span>
+        <span class="fruit-emoji">🟣</span>
+        <div class="fruit-name">相乗の果実</div>
+        <div class="fruit-hint">多様性を活かして創造的に生きる者が手にする、神秘の実</div>
+      </div>
+
+    </div>
+
+    <div class="fruits-mystery reveal">
+      <p>✦ そして、全てを超えた先に——幻の果実が眠っている ✦</p>
+      <small>6種コンプリート後、さらなる旅が待っています</small>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     BOOK / INSPIRATION
+     ============================================================ -->
+<section class="book-section" id="book">
+  <div class="section-inner">
+    <div class="book-grid">
+
+      <div class="book-visual reveal">
+        <img class="book-phone" src="screenshots/IMG_6198.PNG" alt="参考著書ページ">
+      </div>
+
+      <div class="book-text reveal reveal-delay-2">
+        <span class="section-label">✦ Inspiration ✦</span>
+        <h2 class="section-title">
+          6つの果実の源は、<br><span class="accent">世界的ベストセラーに</span>あった。
+        </h2>
+        <p class="section-body" style="margin-bottom:32px;">
+          スティーブン・R・コヴィー博士の著書
+          「7つの習慣」にインスピレーションを受け、このアプリは生まれました。
+          各果実は、7つの習慣の本質的な要素と対応しています。
+        </p>
+
+        <div class="habits-list">
+          <div class="habit-item">
+            <div class="habit-num">1</div>
+            <div>
+              <h4>主体的である</h4>
+              <p>自分の行動・感情・選択はすべて自分が決める</p>
+            </div>
+          </div>
+          <div class="habit-item">
+            <div class="habit-num">2</div>
+            <div>
+              <h4>終わりを思い描くことから始める</h4>
+              <p>人生の目的を明確にし、逆算して今日を生きる</p>
+            </div>
+          </div>
+          <div class="habit-item">
+            <div class="habit-num">3</div>
+            <div>
+              <h4>Win-Winを考える</h4>
+              <p>すべての関係において相互利益を追求する</p>
+            </div>
+          </div>
+          <div class="habit-item">
+            <div class="habit-num">4</div>
+            <div>
+              <h4>理解してから理解される</h4>
+              <p>まず相手を深く聴き、共感することから始める</p>
+            </div>
+          </div>
+          <div class="habit-item">
+            <div class="habit-num">5</div>
+            <div>
+              <h4>シナジーを創り出す</h4>
+              <p>多様性を活かして、一人では出せない成果を生む</p>
+            </div>
+          </div>
+          <div class="habit-item">
+            <div class="habit-num">6</div>
+            <div>
+              <h4>刃を研ぐ</h4>
+              <p>肉体・精神・知性・社会の4側面を継続的に更新する</p>
+            </div>
+          </div>
+        </div>
+
+        <p style="margin-top:24px;font-size:0.78rem;color:var(--text-muted);line-height:1.7;">
+          ※ アプリ内「設定 → 習慣の果実の参考著書」から詳細を読むことができます。<br>
+          <em style="color:var(--gold);font-style:normal;">なぜ7つの習慣なのにアプリは6つ？——その謎の答えもそこに。</em>
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     DOWNLOAD CTA
+     ============================================================ -->
+<section class="cta-section" id="download">
+  <div class="section-inner" style="position:relative;z-index:1;">
+
+    <div class="cta-magic-line reveal"></div>
+
+    <h2 class="cta-title reveal reveal-delay-1">
+      さあ、<em style="color:var(--gold-light);font-style:normal;">不思議な庭</em>へ。<br>
+      ケロが待っています。
+    </h2>
+
+    <p class="cta-sub reveal reveal-delay-2">
+      習慣を続けることは、魔法ではない。<br>
+      でも続けた先に見えるものは——まるで魔法のようだ。
+    </p>
+
+    <div class="cta-stars reveal reveal-delay-3">
+      ⭐⭐⭐⭐⭐
+    </div>
+
+    <div class="cta-buttons reveal reveal-delay-3">
+      <a href="#" class="appstore-btn">
+        <svg viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        <div class="appstore-btn-text">
+          <small>Download on the</small>
+          <strong>App Store</strong>
+        </div>
+      </a>
+    </div>
+
+    <p class="cta-note reveal reveal-delay-4">
+      🐸 無料ダウンロード &nbsp;｜&nbsp; iOS 17.0以上対応 &nbsp;｜&nbsp; 日本語
+    </p>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="top.png" alt="習慣の果実" style="width:40px;height:40px;object-fit:cover;border-radius:10px;border:1px solid rgba(212,160,23,0.2);">
+      <div class="footer-logo-text">習慣の果実 — つづける</div>
+    </div>
+
+    <ul class="footer-links">
+      <li><a href="#world">世界観</a></li>
+      <li><a href="#features">使い方</a></li>
+      <li><a href="#fruits">6つの果実</a></li>
+      <li><a href="#book">参考著書</a></li>
+      <li><a href="#download">ダウンロード</a></li>
+      <li><a href="privacy.html">プライバシーポリシー</a></li>
+    </ul>
+
+    <p class="footer-copy">
+      © 2026 Shuji. All rights reserved.<br>
+      「7つの習慣」は Steven R. Covey 著・キングベアー出版の登録商標です。<br>
+      <a href="privacy.html">プライバシーポリシー</a>
+      &nbsp;｜&nbsp;
+      <a href="mailto:support@keepgo.app">お問い合わせ</a>
+    </p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
